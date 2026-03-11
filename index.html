@@ -1,38 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Redirecting...</title>
+  <meta charset="UTF-8">
+  <title>Patreon Code</title>
 </head>
-
 <body>
+  <h2>Patreon Login Successful!</h2>
 
-Redirecting back to the app...
+  <p>Copy the code below and paste it into the app:</p>
 
-<script>
+  <input type="text" id="patreonCode" style="width: 100%;" readonly>
 
-const params = new URLSearchParams(window.location.search)
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
 
-const code = params.get("code")
-const state = params.get("state")
-
-if (code) {
-
-    let appURL = "FindlayBarbell://oauth-callback/?code=" + code
-
-    if (state) {
-        appURL += "&state=" + state
+    if (code) {
+      document.getElementById("patreonCode").value = code;
+    } else {
+      document.body.innerHTML = "No Patreon code received. Try logging in again.";
     }
-
-    window.location.href = appURL
-
-} else {
-
-    document.body.innerHTML = "No Patreon code received."
-
-}
-
-</script>
-
+  </script>
 </body>
 </html>
