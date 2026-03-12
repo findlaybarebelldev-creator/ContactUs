@@ -11,7 +11,8 @@
 
   <input type="text" id="patreonCode" style="width: 100%;" readonly>
   <button id="copyButton">Copy to Clipboard</button>
-
+  <button onclick="alert('Copy the code from the URL manually if empty')">Get Code</button>
+  
   <script>
     const params = new URLSearchParams(window.location.search);
     const code = params.get("code");
